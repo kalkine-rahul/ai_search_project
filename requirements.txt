@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+duckduckgo-search
+beautifulsoup4
+requests
+ollama

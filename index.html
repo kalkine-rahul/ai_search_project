@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local AI Search</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; line-height: 1.6; }
+        input { width: 80%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px; }
+        #results { margin-top: 20px; background: #f4f4f4; padding: 15px; border-radius: 5px; white-space: pre-wrap; }
+        .source { color: #555; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>🔎 Local AI Web Search</h1>
+    <input type="text" id="query" placeholder="Ask me anything...">
+    <button onclick="search()">Search</button>
+
+    <div id="results">Answer will appear here...</div>
+
+    <script>
+        async function search() {
+            const q = document.getElementById('query').value;
+            const resBox = document.getElementById('results');
+            resBox.innerText = "Searching and thinking...";
+            
+            const response = await fetch(`http://127.0.0.1:8000/ask?q=${q}`);
+            const data = await response.json();
+            
+            let html = `<strong>Answer:</strong>\n${data.answer}\n\n<strong>Sources:</strong>\n`;
+            data.sources.forEach(s => {
+                html += `<div class="source">- <a href="${s.url}" target="_blank">${s.title}</a></div>`;
+            });
+            resBox.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
