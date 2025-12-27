@@ -1,0 +1,30 @@
+# Core
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# LangChain (specific versions for compatibility)
+langchain==0.1.0
+langchain-community==0.1.0
+langchain-core==0.1.0
+langchain-text-splitters==0.0.1
+langchainhub==0.1.15
+
+# Ollama integration
+langchain-ollama==0.1.0
+
+# Chroma vector store
+chromadb==0.4.22
+langchain-chroma==0.1.0
+
+# PDF processing
+pypdf==3.17.4
+
+# Search tools
+duckduckgo-search==4.1.1
+
+# Utils
+requests==2.31.0
+aiofiles==23.2.1
+python-multipart==0.0.6
